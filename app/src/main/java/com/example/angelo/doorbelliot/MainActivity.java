@@ -68,8 +68,7 @@ public class MainActivity extends AppCompatActivity implements NewConnectionFrag
                 Log.d("MESSAGGIO ARRIVATO","ok");
                 CronologiaFragment crono = (CronologiaFragment) mSectionsPagerAdapter.getItem(1);
                 crono.addMessage(new String(message.getPayload()));
-
-
+                
                 //notifica di avvenuta ricezione immagine
                 NotificationCompat.Builder builder= new NotificationCompat.Builder(getBaseContext());
                 builder.setSmallIcon(R.mipmap.ic_launcher);
