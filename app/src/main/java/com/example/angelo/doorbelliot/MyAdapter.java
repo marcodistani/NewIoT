@@ -23,20 +23,11 @@ import java.util.ArrayList;
 
 class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder>{
 
-
-
     private ArrayList<String> myCrono;
 
-
-
-
     public MyAdapter(ArrayList<String> images) {
-
         myCrono=images;
-
-
     }
-
 
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
@@ -45,9 +36,7 @@ class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder>{
         public ViewHolder(View v) {
             super(v);
             mImageView = (ImageView) v.findViewById(R.id.info_image);
-
         }
-
     }
 
     @Override
@@ -58,19 +47,13 @@ class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder>{
 
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
-
         Context context= holder.mImageView.getContext();
         Picasso.with(context).load(Uri.parse(myCrono.get(position))).into(holder.mImageView);
-
-
     }
 
     public void add(String data){
         myCrono.add(data);
-
         this.notifyDataSetChanged();
-
-
     }
 
     @Override
@@ -78,7 +61,5 @@ class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder>{
         return myCrono.size();
     }
 
-
-
-
 }
+

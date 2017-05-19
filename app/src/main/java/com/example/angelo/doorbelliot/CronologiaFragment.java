@@ -42,32 +42,6 @@ public class CronologiaFragment extends android.support.v4.app.Fragment {
         mRecyclerView.setLayoutManager(mLayoutManager);
         mAdapter= new MyAdapter(new ArrayList<String>());
         mRecyclerView.setAdapter(mAdapter);
-
-
-        /*mRecyclerView.addOnItemTouchListener(
-                new RecyclerItemClickListener(getContext(), mRecyclerView ,new RecyclerItemClickListener.OnItemClickListener() {
-                    @Override public void onItemClick(View view, int position) {
-                        Log.d("pressione"," avvenuta ");
-                        int itemPosition = mRecyclerView.getChildLayoutPosition(view);
-                        Bitmap item = bitmaps.get(itemPosition);
-
-
-
-
-
-
-                    }
-
-                    @Override public void onLongItemClick(View view, int position) {
-                        // do whatever
-                    }
-                })
-        );*/
-
-
-
-
-
     }
 
 

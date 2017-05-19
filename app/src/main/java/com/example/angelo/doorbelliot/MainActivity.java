@@ -4,6 +4,7 @@ import android.app.Fragment;
 import android.app.FragmentTransaction;
 import android.app.NotificationManager;
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.preference.PreferenceFragment;
 import android.support.design.widget.TabLayout;
@@ -23,6 +24,8 @@ import org.eclipse.paho.client.mqttv3.MqttConnectOptions;
 import org.eclipse.paho.client.mqttv3.MqttException;
 import org.eclipse.paho.client.mqttv3.MqttMessage;
 
+import static android.app.Service.START_STICKY;
+
 public class MainActivity extends AppCompatActivity implements NewConnectionFragment.PassValues {
 
     MqttAndroidClient androidClient;
@@ -34,36 +37,20 @@ public class MainActivity extends AppCompatActivity implements NewConnectionFrag
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-
-
         Toolbar toolbar=(Toolbar)findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-
         mSectionsPagerAdapter=new SectionsPagerAdapter(getSupportFragmentManager());
-
         mViewPager=(ViewPager)findViewById(R.id.container);
         mViewPager.setAdapter(mSectionsPagerAdapter);
-
         TabLayout tabLayout = (TabLayout) findViewById(R.id.tabs);
-
         tabLayout.setupWithViewPager(mViewPager);
-
-
-
-        NotificationCompat.Builder builder= new NotificationCompat.Builder(this);
-        builder.setSmallIcon(R.mipmap.ic_launcher);
-        builder.setContentTitle("Notifica IotApp");
-        builder.setContentText("AppInRunning");
-        NotificationManager NM= (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
-        NM.notify(0,builder.build());
-
     }
 
-
-
-
-
+    protected void onResume()
+    {
+        super.onResume();
+        startService(new Intent(this, StartAtBootService.class));
+    }
 
 
     @Override
@@ -81,6 +68,15 @@ public class MainActivity extends AppCompatActivity implements NewConnectionFrag
                 Log.d("MESSAGGIO ARRIVATO","ok");
                 CronologiaFragment crono = (CronologiaFragment) mSectionsPagerAdapter.getItem(1);
                 crono.addMessage(new String(message.getPayload()));
+
+
+                //notifica di avvenuta ricezione immagine
+                NotificationCompat.Builder builder= new NotificationCompat.Builder(getBaseContext());
+                builder.setSmallIcon(R.mipmap.ic_launcher);
+                builder.setContentTitle("Notifica IotApp");
+                builder.setContentText("Immagine arrivata");
+                NotificationManager NM= (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
+                NM.notify(0,builder.build());
             }
 
             @Override

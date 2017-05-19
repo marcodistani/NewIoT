@@ -47,7 +47,7 @@ public class NewConnectionFragment extends android.support.v4.app.Fragment {
 
         getSharedParameters();    //prendo i parametri condivisi
 
-        int prt= Integer.parseInt(sp.getString("port",""));
+        String prt= sp.getString("port","");
         Toast.makeText(getContext(),String.valueOf(port),Toast.LENGTH_LONG).show();
         serverName="tcp://"+ ( sp.getString("server","") )+":"+prt;
         pass.passage(sp.getString("client",""),serverName,(sp.getString("topic","")) );
@@ -105,10 +105,6 @@ public class NewConnectionFragment extends android.support.v4.app.Fragment {
         port.setText(st3);
         String st4= sp.getString("topic","");
         topic.setText(st4);
-       // Toast.makeText(getContext(),st3,Toast.LENGTH_LONG).show();
-
-
-
     }
 
 
