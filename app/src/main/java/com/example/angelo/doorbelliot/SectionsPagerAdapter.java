@@ -7,7 +7,6 @@ import android.support.v4.app.FragmentPagerAdapter;
 /**
  * Created by angelo on 08/05/17.
  */
-
 class SectionsPagerAdapter extends FragmentPagerAdapter {
 
     Fragment uno, due;

@@ -51,6 +51,5 @@ public class CronologiaFragment extends android.support.v4.app.Fragment {
         ((MyAdapter)mAdapter).add(payload);
     }
 
-
-
+    
 }

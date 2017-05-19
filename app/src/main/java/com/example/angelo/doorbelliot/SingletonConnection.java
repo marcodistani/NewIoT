@@ -27,7 +27,6 @@ public class SingletonConnection {
         if (instance == null) {
             instance = new SingletonConnection(context);
         }
-
         return instance;
     }
 
