@@ -14,7 +14,6 @@ public class SingletonConnection {
 
 
     private SingletonConnection(Context context){
-
     }
 
 

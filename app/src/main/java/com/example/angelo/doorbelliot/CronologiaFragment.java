@@ -47,7 +47,7 @@ public class CronologiaFragment extends android.support.v4.app.Fragment {
 
 
     public void addMessage(String payload) {
-        Log.d(TAG,"messaggio: " + payload);
+        Log.d(TAG,"messaggio : " + payload);
         ((MyAdapter)mAdapter).add(payload);
     }
 

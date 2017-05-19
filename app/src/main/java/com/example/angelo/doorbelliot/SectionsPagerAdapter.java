@@ -11,7 +11,6 @@ import android.support.v4.app.FragmentPagerAdapter;
 class SectionsPagerAdapter extends FragmentPagerAdapter {
 
     Fragment uno, due;
-
     public SectionsPagerAdapter(FragmentManager fm){
         super(fm);
     }

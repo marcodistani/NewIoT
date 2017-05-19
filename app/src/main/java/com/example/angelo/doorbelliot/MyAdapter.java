@@ -29,7 +29,6 @@ class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder>{
         myCrono=images;
     }
 
-
     public static class ViewHolder extends RecyclerView.ViewHolder {
         public ImageView mImageView;
 

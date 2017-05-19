@@ -107,7 +107,6 @@ public class NewConnectionFragment extends android.support.v4.app.Fragment {
         topic.setText(st4);
     }
 
-
     public void setSharedParameters()
     {
         SharedPreferences.Editor editor = sp.edit();

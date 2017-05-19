@@ -58,8 +58,7 @@ public class StartAtBootService extends MqttService {
         return android.app.Service.START_STICKY;
 
     }
-
-
+    
     @Override
     public void onStart(Intent intent, int startId) {
         super.onStart(intent, startId);
